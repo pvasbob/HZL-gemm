@@ -1,0 +1,67 @@
+# Local official CUTLASS reference
+/official_for_reference/
+
+# CMake and Ninja build directories
+/build/
+/build-*/
+/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+.ninja_deps
+.ninja_log
+build.ninja
+compile_commands.json
+install_manifest.txt
+CMakeUserPresets.json
+
+# Compiled C/C++ and CUDA files
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.cubin
+*.fatbin
+
+# Dependency and temporary compiler files
+*.d
+*.tmp
+*.temp
+*.ii
+*.i
+*.gpu
+*.stub.c
+
+# Profiling output
+*.ncu-rep
+*.nsys-rep
+*.qdrep
+
+# Runtime-generated data
+/generated/
+/scratch/
+
+# Python environments, in case we study CuTe DSL later
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS and crash files
+.DS_Store
+Thumbs.db
+core
+core.*
