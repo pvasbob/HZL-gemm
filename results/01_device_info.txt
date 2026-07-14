@@ -1,0 +1,6 @@
+HZL GEMM: SM86 project 
+CUDA device count: 1
+Device name: NVIDIA GeForce RTX 3080
+Compute capability: SM86
+Warp size: 32
+GPU kernel compiled for SM86
