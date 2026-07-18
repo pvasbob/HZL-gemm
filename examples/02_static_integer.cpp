@@ -29,26 +29,26 @@ int main()
     );
 
 
-    std::cout 
+    std::cout
         << "Eight::value = "
         << Eight::value
         << '\n';
 
 
-    std::cout 
+    std::cout
         << std::boolalpha
         << "C<8> and C<9> are the same type: "
         << same_type
         << '\n';
 
-    std::cout 
+    std::cout
         << "sizeof(C<8>): "
         << sizeof(Eight)
         << " byte\n";
 
     Eight eight{};
 
-    std::cout 
+    std::cout
         << "Converted Eight object: "
         << static_cast<int>(eight)
         << '\n';
@@ -58,12 +58,12 @@ int main()
         << eight()
         << '\n';
 
-    std::cout 
+    std::cout
         << "Int<8>::value = "
         << EightInt::value
         << '\n';
 
-    std::cout 
+    std::cout
         << "_8::value = "
         << cute::_8::value
         << '\n';
@@ -72,22 +72,22 @@ int main()
     // constexpr auto sum
     // has a const-qualified type, so decltype(sum) is const int.
     // An ordinary auto variable is not const-qualified unless you explicitly add const or constexpr.
-    constexpr auto sum = 
+    constexpr auto sum =
         cute::_8{} + cute::_16{};
-    
+
     using SumType = decltype(sum);
 
-    std::cout 
+    std::cout
         << "_8{} + _16{} = "
         << sum
         << '\n';
 
-    std::cout 
+    std::cout
         << "Sum type is int: "
         << std::is_same_v<SumType, const int>
         << '\n';
 
-    std::cout 
+    std::cout
         << "sum type is const C<24>: "
         << std::is_same_v<SumType, const cute::C<24>>
         << '\n';
@@ -98,10 +98,10 @@ int main()
             const cute::C<24>>
     );
 
-    constexpr auto difference = 
+    constexpr auto difference =
         cute::_16{} - cute::_8{};
-    
-    constexpr auto product = 
+
+    constexpr auto product =
         cute::_8{} * cute::_16{};
 
     static_assert(
@@ -120,14 +120,14 @@ int main()
 
     std::cout
         << "_16{} - _8{} = "
-        << difference 
+        << difference
         << '\n';
 
     std::cout
         << "_8{} * _16{} = "
-        << product 
+        << product
         << '\n';
-            
+
 
     return 0;
 }
@@ -135,35 +135,35 @@ int main()
 
 
 // std::is_same_v   evaluated/resolved at compile time, regardless of where it appears.
-// std::is_same_v   is a variable termplate, not a funcition. 
+// std::is_same_v   is a variable termplate, not a funcition.
 
 
-// The expression inside static_assert must be eligible for compile-time evaluation under 
+// The expression inside static_assert must be eligible for compile-time evaluation under
 // C++ constant-expression rules, and the compiler then evaluates it during compilation.
 
 // constexpr int n = 8;
 // static_assert(n == 8); // Valid
-// n here is a constant-expression variable. 
+// n here is a constant-expression variable.
 
 
 // int n = 8;
 // static_assert(n == 8); // Error
-// Even though a human can see that n was initialized to 8, n is an ordinary mutable variable. 
+// Even though a human can see that n was initialized to 8, n is an ordinary mutable variable.
 // It is not permitted in a constant expression.
-// 
+//
 // int n = 8
 //     mutable runtime variable
-// 
+//
 // const int n = 8
 //     immutable variable; may sometimes be usable as a constant expression
-// 
+//
 // constexpr int n = 8
 //     immutable variable explicitly guaranteed to be usable in constant expressions
-// 
+//
 // The real requirement is:
 // The entire condition passed to static_assert must be a constant expression.
-// 
-// A constexpr variable guarantees that requirement for its initialization. A const int 
+//
+// A constexpr variable guarantees that requirement for its initialization. A const int
 // can also satisfy it when initialized with compile-time information.
 
 // constexpr, static_assert()
@@ -178,11 +178,11 @@ int main()
 // {
     // return x * x;
 // }
-// Declaring the function constexpr means it is eligible 
+// Declaring the function constexpr means it is eligible
 // for compile-time evaluation. It does not mean every call must occur during compilation:
 // constexpr int a = square(4); // Must be compile-time
 // static_assert(square(4) == 16); // Must be compile-time
-// 
+//
 // int x;
 // std::cin >> x;
 // int b = square(x); // Runs at runtime

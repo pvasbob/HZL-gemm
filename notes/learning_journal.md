@@ -25,18 +25,18 @@ Behavior:              possibly identical
 
 ====================
 
-static_assert is evaluated at compile time because the C++ language 
+static_assert is evaluated at compile time because the C++ language
 specifically defines it as a compile-time assertion.
 Be careful: the word static does not always mean “compile time.” For example:
 static int counter = 0;
-counter still exists and can change at runtime. static there describes storage 
+counter still exists and can change at runtime. static there describes storage
 duration, not compile-time
 
-constexpr means an operation is eligible for compile-time evaluation. Not has to be 
-compile-time evaluation. The surrounding context determines whether compile-time 
+constexpr means an operation is eligible for compile-time evaluation. Not has to be
+compile-time evaluation. The surrounding context determines whether compile-time
 evaluation is required.
 
-The compiler consumes the useful type-level information during compilation, 
+The compiler consumes the useful type-level information during compilation,
 so the runtime does not need to inspect the object to discover the number 8.
 
 

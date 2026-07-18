@@ -15,7 +15,7 @@ target_include_directories(
     cute
     INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-)       
+)
 
 add_executable(
     step01_device_info
