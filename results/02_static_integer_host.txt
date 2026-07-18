@@ -1,0 +1,12 @@
+Eight::value = 8
+C<8> and C<9> are the same type: false
+sizeof(C<8>): 1 byte
+Converted Eight object: 8
+Called Eight object: 8
+Int<8>::value = 8
+_8::value = 8
+_8{} + _16{} = 24
+Sum type is int: false
+sum type is const C<24>: true
+_16{} - _8{} = 8
+_8{} * _16{} = 128
