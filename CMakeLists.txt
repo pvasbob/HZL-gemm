@@ -32,6 +32,13 @@ add_executable(
     examples/02_static_integer_device.cu
 )
 
+add_executable(
+    step03_tuple
+    examples/03_tuple.cpp
+)
+
+
+
 target_link_libraries(
     step02_static_integer_device
     PRIVATE
@@ -40,6 +47,12 @@ target_link_libraries(
 
 target_link_libraries(
     step02_static_integer
+    PRIVATE
+    cute
+)
+
+target_link_libraries(
+    step03_tuple
     PRIVATE
     cute
 )
