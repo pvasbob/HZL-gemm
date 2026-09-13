@@ -42,17 +42,24 @@ namespace cute {
 
         static constexpr auto value = v;
 
+        // not strictly necessary, but makes it easier to use the type as a value
         using value_type = decltype(v);
 
 
         // operator value_type()  → use object as its value type
         // operator()()           → explicitly request the encoded value
+
+        // operator value_type is the special function name.
+        // () is its empty parameter list.
+        // Its conversion target is embedded in the name: operator value_type() 
+        // the language defines that this function produces an value_type object. 
         CUTE_HOST_DEVICE constexpr
         operator value_type() const noexcept
         {
             return value;
         }
 
+        // function call operator. It is not cooversion operator. 
         CUTE_HOST_DEVICE constexpr
         value_type operator()() const noexcept
         {
@@ -60,6 +67,7 @@ namespace cute {
         }
     };
     // alias template describes a family of aliases
+    // Int<v> is a convenient integer-only alias for C<v>
     template<int v>
     using Int = C<v>;
 
